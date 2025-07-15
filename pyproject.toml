@@ -1,6 +1,6 @@
 [project]
 name = "django-bigtrill"
-version = "0.1.2"
+version = "1.0.0"
 description = "A Django app (more like 2 scripts) that will aid you to switch from using the default Django Auth User model to a custom User model in an existing Django project."
 
 readme = "README.md"
@@ -9,7 +9,7 @@ authors = [
     { name = "Alexander Anyaegbunam", email = "alexander.any7@gmail.com" }
 ]
 requires-python = ">=3"
-keywords = ["django", "auth", "custom user", "migration"]
+keywords = ["django", "auth", "custom user", "migration", "bigtrill", "bigtrill migration", "default user model", "custom user model", "django custom user model", "django auth user model", "django user model migration", "existing project", "django existing project"]
 dependencies = [
     "Django >= 3.2"
 ]

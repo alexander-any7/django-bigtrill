@@ -15,9 +15,19 @@
 
 ### Installation
 
-Clone or copy the `django-bigtrill` directory into your Django project.
+```bash
+pip install django-bigtrill
+```
+
+or clone into your project root directory:
+
+```bash
+git clone https://github.com/alexander-any7/django-bigtrill
+```
 
 ---
+
+**Important**: Your `INSTALLED_APPS` must be a list or this will not work.
 
 ### Usage
 
@@ -31,7 +41,7 @@ Clone or copy the `django-bigtrill` directory into your Django project.
    - `AUTH_USER_MODEL_PATH`: Absolute or relative path to where the `AUTH_USER_MODEL` variable is or will be defined
    - `DEFAULT_DJANGO_USER_MODEL_FILE_PATHS`: List of files referencing the default user model (absolute or relative paths; optional)
    - `BASE_DIR`: Absolute or relative path to your project root. You are advised to run `pwd` and provide the output of the command.
-   - `GITIGNORE_PATH`: Path to your `.gitignore` file, relative to `BASE_DIR` or absolute. The folders in the gitignore will not be searched for references to the default `User` model.
+   - `GITIGNORE_PATH`: Path to your `.gitignore` file. This MUST be relative to `BASE_DIR`. The folders in the gitignore will not be searched for references to the default `User` model.
 
    Example:
 
@@ -45,9 +55,13 @@ Clone or copy the `django-bigtrill` directory into your Django project.
    AUTH_USER_MODEL_PATH = INSTALLED_APPS_SETTINGS_FILE_PATH
    FILES_TO_SEARCH = []  # absolute or relative paths
    BASE_DIR = "<absolute or relative path to your project root>"
-   GITIGNORE_PATH = ".gitignore"  # MUST BE RELATIVE to BASE_DIR 
+   GITIGNORE_PATH = ".gitignore"  # MUST BE RELATIVE to BASE_DIR
+
+   ```
 
 2. **Run the start script**:
+
+   If installed via pip:
 
    ```bash
    bigtrill-start
@@ -57,6 +71,14 @@ Clone or copy the `django-bigtrill` directory into your Django project.
 
    ```bash
    python -m bigtrill.start
+   ```
+
+   or
+
+   If cloned from git:
+
+   ```bash
+   python django-bigtrill/bigtrill/start.py
    ```
 
    Follow the prompts. The script will:
@@ -78,7 +100,15 @@ Clone or copy the `django-bigtrill` directory into your Django project.
 - Do not run on production without testing.
 - After migration, update any manual references to the old user model.
 - Remove temporary files and update your main settings as needed.
-  Remove temporary files (such as `bigtrill_temp_settings.py` and) and move any definitions from them (e.g., `AUTH_USER_MODEL`) to your desired location in your main `settings.py` file to follow Django project conventions. You might also want to remove the `bigtrill_settings.py` file you created and remove `bigtrill` from `INSTALLED_APPS`.
+
+  - Remove temporary files (such as `bigtrill_temp_settings.py`) and move any definitions from them (e.g., `AUTH_USER_MODEL`) to your desired location in your main `settings.py` file to follow Django project conventions.
+  - You might also want to remove the `bigtrill_settings.py` file you created.
+  - You might also want to remove `bigtrill` from `INSTALLED_APPS`. You can do this by going to the end of the file provided in `INSTALLED_APPS_SETTINGS_FILE_PATH` and there you will see:
+    ```python
+    # Added by bigtrill.start
+    INSTALLED_APPS += [..., 'bigtrill']
+    ```
+    Simply remove bigtrill from the list. Optionally you can move the first item (the new app label where the new User model resides) to the actual `INSTALLED_APPS` list or definition and remove this comment and the lines below all together.
 
 - **Performance**: Migration performance may vary depending on project size and number of users. For large datasets, consider running during low-traffic periods. Feel free to implement any optimization improvements you deem fit for your specific use case.
 
@@ -98,4 +128,4 @@ MIT
 
 ### Author
 
-Alexander Invictus (<alexander.any7@gmail.com>)
+Alexander Anyaegbunam (<alexander.any7@gmail.com>)
