@@ -45,8 +45,7 @@ Clone or copy the `django-bigtrill` directory into your Django project.
    AUTH_USER_MODEL_PATH = INSTALLED_APPS_SETTINGS_FILE_PATH
    FILES_TO_SEARCH = []  # absolute or relative paths
    BASE_DIR = "<absolute or relative path to your project root>"
-   GITIGNORE_PATH = ".gitignore"  # relative to BASE_DIR or absolute
-   ```
+   GITIGNORE_PATH = ".gitignore"  # MUST BE RELATIVE to BASE_DIR 
 
 2. **Run the start script**:
 
