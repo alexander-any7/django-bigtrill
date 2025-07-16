@@ -126,14 +126,8 @@ git clone https://github.com/alexander-any7/django-bigtrill
 ### TODO
 
 - **Improve logging**: Add detailed logging for each step of the migration process with proper stdout output to help users track progress and debug issues
-- **Add dry-run mode**  
-  Implement a `--dry-run` flag that simulates changes and prints a summary (files that would be modified, models added/renamed, etc.) without making actual changes.
-- **Backup files before modification**  
-  Automatically create `.bak` copies of any file the script edits, so users can roll back if something goes wrong.
 - **Improve model rename detection**  
-  Use a more robust method (e.g., analyzing the generated migration files) to confirm that Django has detected the rename, instead of relying on string checks in stdout.
-- **Refactor main script**  
-  Break `main()` into smaller functions for better readability, testability, and reuse (e.g., `find_user_model_usages()`, `patch_settings()`, `apply_migrations()`).
+  Use a more robust method (e.g., analyzing the generated migration files) to confirm that Django has detected the rename.
 
 ---
 
