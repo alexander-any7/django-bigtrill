@@ -1,6 +1,6 @@
 [project]
 name = "django-bigtrill"
-version = "1.0.1"
+version = "2.0.0"
 description = "A Django app (more like 2 scripts) that will aid you to switch from using the default Django Auth User model to a custom User model in an existing Django project."
 
 readme = "README.md"

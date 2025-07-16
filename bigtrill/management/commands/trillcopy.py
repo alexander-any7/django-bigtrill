@@ -87,6 +87,6 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.SUCCESS(
-                f"Successfully copied users from User to {CustomUser._meta.label}. and reset database sequence."
+                f"Successfully copied users from User to {CustomUser._meta.label} and reset database sequence."
             )  # noqa
         )
