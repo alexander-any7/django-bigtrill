@@ -7,9 +7,12 @@
 ### Features
 
 - Detects and updates references to the default Django `User` model
-- Creates a new custom user model in your chosen app
+- Creates a new custom user model in an app with a name you choose
 - Updates settings and migrations automatically
 - Provides admin integration for the new user model
+- Automatically creates backups of files before modification
+- Allows you to restore files from backup with a flag
+- Supports a dry run mode to preview changes without modifying files
 
 ---
 
@@ -81,6 +84,12 @@ git clone https://github.com/alexander-any7/django-bigtrill
    python django-bigtrill/bigtrill/start.py
    ```
 
+   Flags:
+
+   - `--dry_run` : Show which files would be modified without making any changes.
+   - `--restore` : Restore files from backup and exit.
+   - `--skip_pause` : Skips the pause that allows you to check everything before proceeding to rename the model
+
    Follow the prompts. The script will:
 
    - Search for references to the default user model
@@ -125,7 +134,6 @@ git clone https://github.com/alexander-any7/django-bigtrill
   Use a more robust method (e.g., analyzing the generated migration files) to confirm that Django has detected the rename, instead of relying on string checks in stdout.
 - **Refactor main script**  
   Break `main()` into smaller functions for better readability, testability, and reuse (e.g., `find_user_model_usages()`, `patch_settings()`, `apply_migrations()`).
-
 
 ---
 

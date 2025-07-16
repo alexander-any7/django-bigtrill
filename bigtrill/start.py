@@ -171,8 +171,9 @@ class BigTrill:
             print(f"Removed temporary settings file: {self.temp_settings}")
 
         try:
-            import bigtrill_settings as settings
             import shutil
+
+            import bigtrill_settings as settings
             if settings.NEW_AUTH_APP_LABEL:
                 shutil.rmtree(settings.NEW_AUTH_APP_LABEL, ignore_errors=True)
         except Exception:
@@ -439,7 +440,7 @@ class BigTrill:
         self._print_success_message()
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Custom user model setup script.")
     parser.add_argument(
         "--skip_pause",
@@ -468,3 +469,7 @@ if __name__ == "__main__":
     else:
         bigtrill = BigTrill()
         bigtrill.main(skip_pause=args.skip_pause, dry_run=args.dry_run)
+
+
+if __name__ == "__main__":
+    main()
